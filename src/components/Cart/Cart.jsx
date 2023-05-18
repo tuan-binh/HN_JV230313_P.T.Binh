@@ -70,7 +70,10 @@ function Cart({
               </div>
               <div className="action-cart">
                 <div>
-                  <p className="total">Total: {totalCoin().toLocaleString()}</p>
+                  <p className="total">
+                    Total: <i class="fa-solid fa-wallet"></i>{" "}
+                    {totalCoin().toLocaleString()}
+                  </p>
                   <button
                     onClick={payProduct}
                     data-bs-toggle="modal"
