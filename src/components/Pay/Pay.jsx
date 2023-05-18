@@ -8,6 +8,11 @@ function Pay({ cart }) {
     });
     return sum;
   }
+
+  function thank() {
+    alert("Thank you for your purchase!");
+  }
+
   return (
     <div>
       <div
@@ -37,7 +42,7 @@ function Pay({ cart }) {
               </p>
             </div>
             <div className="modal-footer">
-              <a href="http://localhost:3000">
+              <a href="http://localhost:3000" onClick={thank}>
                 <button
                   type="button"
                   className="btn btn-secondary"

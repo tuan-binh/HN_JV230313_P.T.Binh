@@ -68,32 +68,45 @@ function Cart({
                   );
                 })}
               </div>
-              <div className="action-cart">
-                <div>
-                  <p className="total">
-                    Total: <i class="fa-solid fa-wallet"></i>{" "}
-                    {totalCoin().toLocaleString()}
-                  </p>
-                  <button
-                    onClick={payProduct}
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                  >
-                    <i class="fa-regular fa-paper-plane"></i> Pay
-                  </button>
-                  <button onClick={handleClearAll}>
-                    <i class="fa-regular fa-trash-can"></i> Clear All
-                  </button>
-                </div>
-              </div>
             </>
           ) : (
-            <h2
-              style={{ textAlign: "center", color: "#ccc", marginTop: "200px" }}
-            >
-              Bạn chưa có sản phẩm nào
-            </h2>
+            <div className="product">
+              <h2
+                style={{
+                  textAlign: "center",
+                  color: "#ccc",
+                  marginTop: "200px",
+                }}
+              >
+                Bạn chưa có sản phẩm nào
+              </h2>
+            </div>
           )}
+          <div className="action-cart">
+            <div>
+              <p className="total">
+                Total: <i class="fa-solid fa-wallet"></i>{" "}
+                {totalCoin().toLocaleString()}
+              </p>
+              {totalCoin() === 0 ? (
+                <button>
+                  <i class="fa-regular fa-paper-plane"></i> Pay
+                </button>
+              ) : (
+                <button
+                  onClick={payProduct}
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="fa-regular fa-paper-plane"></i> Pay
+                </button>
+              )}
+
+              <button onClick={handleClearAll}>
+                <i class="fa-regular fa-trash-can"></i> Clear All
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <Pay cart={cart} />
